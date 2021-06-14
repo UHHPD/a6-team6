@@ -16,6 +16,7 @@ int main() {
   Vektor u; // Richtung der Rotationsachse
   std::cout << "Richtung:";
   std::cin >> u;
+  
 
   std::unique_ptr<Zylindermantel> zm(new Zylindermantel(ZM_R, ZM_L));
 
@@ -25,7 +26,8 @@ int main() {
     Vektor x = zm->punkt();
     // Abstand Punkt x und Gerade a + t*u
     // Vektor n = ...;//Normalenvektor x-a kreuz u
-    double r = 0; //|n|/|u|
+    Vektor n = (x-a).kreuz(u);
+    double r = n.betrag()/u.betrag() ;//|n|/|u|
     // std::cout << x << " :" << r << std::endl;
     // addiere Beitrag des Massenpunktes zum Traegheitsmoment
     J += m * r * r;
@@ -33,5 +35,5 @@ int main() {
   std::cout << "Massentraegheitsmoment fuer einen Zylindermantel"
             << " mit a = " << a << " und u = " << u << ": " << J << std::endl;
             
-  return 0;
+  return J ;
 }
