@@ -16,6 +16,16 @@ int main() {
   Vektor u; // Richtung der Rotationsachse
   std::cout << "Richtung:";
   std::cin >> u;
+
+  const double VZ_L = 1.0;
+  int VZ_R;
+  std:: cout<< "Radius";
+  std:: cin>> VZ_R;
+  int VZ_M;
+  std:: cout<< "Masse";
+  std:: cin>> VZ_M;
+
+
   
 
   std::unique_ptr<Zylindermantel> zm(new Zylindermantel(ZM_R, ZM_L));
@@ -35,5 +45,24 @@ int main() {
   std::cout << "Massentraegheitsmoment fuer einen Zylindermantel"
             << " mit a = " << a << " und u = " << u << ": " << J << std::endl;
             
-  return J ;
+
+
+ std::unique_ptr<Vollzylinder> vz(new Vollzylinder(VZ_R, VZ_L));
+ 
+ double VZ_J = 0;
+ double VZ_m = (double)VZ_M/N;
+ for( int i=0;i<N;++i){
+   Vektor x = vz->punkt();
+   Vektor n = (x-a).kreuz(u);
+   double r = n.betrag()/u.betrag();
+   VZ_J += VZ_m * r * r;
+ }
+ std::cout << "Massentraegheitsmoment fuer einen Vollzylinder"
+            << " mit a = " << a << " und u = " << u << ": " << VZ_J<< std::endl;
+  
+ return VZ_J;
 }
+
+          
+
+
