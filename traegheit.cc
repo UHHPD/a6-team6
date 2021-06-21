@@ -7,7 +7,7 @@
 int main() {
   const int N = 10000;     // Anzahl Integrationspunkte
   const double M = 1;      // Masse des Zylindermantels
-  const double ZM_R = 1.0; // Radius der Zylindermantels
+  const double ZM_R = 2.0; // Radius der Zylindermantels
   const double ZM_L = 1.0; // Laenge des Zylindermantels
 
   Vektor a; // Punkt auf der Rotationsachse

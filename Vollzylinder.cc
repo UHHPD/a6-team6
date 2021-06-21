@@ -11,7 +11,7 @@ Vollzylinder::Vollzylinder(double nr, double nl) {
 }
 
 Vektor Vollzylinder::punkt() {
-  double R = sqrt(2*pow(r_,2)* rand()/(double)RAND_MAX);
+  double R = sqrt(pow(r_,2)* rand()/(double)RAND_MAX);
   double phi = 2 * M_PI * rand() / (double)RAND_MAX;
   double z = l_ * (rand() / (double)RAND_MAX - 0.5);
 
