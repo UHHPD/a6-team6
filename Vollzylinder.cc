@@ -9,6 +9,9 @@ Vollzylinder::Vollzylinder(double nr, double nl) {
   r_ = nr;
   l_ = nl;
 }
+std::string Vollzylinder::name(){
+  return "Vollzylinder";
+}
 
 Vektor Vollzylinder::punkt() {
   double R = sqrt(pow(r_,2)* rand()/(double)RAND_MAX);

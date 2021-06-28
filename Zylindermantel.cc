@@ -8,6 +8,10 @@ Zylindermantel::Zylindermantel(double nr, double nl) {
   l_ = nl;
 }
 
+std::string Zylindermantel::name(){
+  return "Zylindermantel";
+}
+
 Vektor Zylindermantel::punkt() {
   double R = r_;
   double phi = 2 * M_PI * rand() / (double)RAND_MAX;
